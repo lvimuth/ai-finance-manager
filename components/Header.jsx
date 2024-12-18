@@ -1,23 +1,24 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import HeaderButton from "./HeaderButton";
 
 function Header() {
   return (
-    <div className="fixed top-0">
-      <nav>
-        <Link href={"/"} className="flex gap-2 items-center justify-center">
-          <Image src={"/logo.png"} alt="logo" width={40} height={40} />
-          <h2>Wealth</h2>
+    <div className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b shadow-md">
+      <nav className="container mx-auto px-4 py-4 flex items-center justify-between ">
+        <Link href={"/"} className="">
+          <Image
+            src={"/logo.png"}
+            alt="logo"
+            width={200}
+            height={60}
+            className="h-12 w-auto object-contain"
+          />
         </Link>
+
+        <HeaderButton />
       </nav>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
     </div>
   );
 }
